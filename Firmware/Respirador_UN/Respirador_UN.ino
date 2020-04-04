@@ -7,27 +7,31 @@ Descripcion: En el contexto de la pandemia de covid-19 la universidad nacional d
              Respiradores mecanicos para ayudar a mitigar las muertes asociadas a fallas respiratorias, por lo se construye 
              el control de los respiradores mecanicos basado en arduino
 */
-byte pin = A0;
 
 // importacion de librerias 
-#include  "Paciente.h"; 
-#include  "entrada.h";
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include  "Paciente.h"; // se usara para configurar las variables del paciente 
+#include  "entrada.h";  // se usa para configurar los botones
 
 // se crea objetos de interfaz, paciente 
 Paciente unico;
-Entrada volumen_tidal(A0);
+Entrada Poteciometro_volumen(A0);
+LiquidCrystal_I2C MyLCD(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
 void setup() {
-  Serial.begin(9600);
-  pinMode(pin,INPUT);
-  
+  MyLCD.begin(16, 2); 
 }
 
 void loop() {
-  Serial.println(volumen_tidal.medir_valor());
-  Serial.println(volumen_tidal.get_pin());
+  MyLCD.setCursor(0,0);
+  MyLCD.print("                ");
+  MyLCD.setCursor(0,0);
+  MyLCD.print("VT:"+ String(Poteciometro_volumen.medir_valor()));  
+  MyLCD.print("Fr:"+ String(Poteciometro_volumen.medir_valor()));  
+  MyLCD.print("Pr:"+ String(Poteciometro_volumen.medir_valor()));  
+  MyLCD.setCursor(0,1);
+  MyLCD.print("  Configurando");  
   
   delay(1000);
-  
-  
-}
+  }
