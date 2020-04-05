@@ -4,10 +4,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "shield arduino mega Respidador-Un "
+Title ""
 Date "mar. 31 mars 2015"
-Rev "1.0"
-Comp "Datamentum"
+Rev ""
+Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -592,289 +592,146 @@ Wire Wire Line
 	8650 5350 8650 5750
 Wire Notes Line
 	11200 6050 8350 6050
+Wire Notes Line
+	8350 6050 8350 500 
 $Comp
-L Device:R R_Encendido1
-U 1 1 5E8237F8
-P 5950 1500
-F 0 "R_Encendido1" V 6157 1500 50  0000 C CNN
-F 1 "220" V 6066 1500 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P20.32mm_Horizontal" V 5880 1500 50  0001 C CNN
-F 3 "~" H 5950 1500 50  0001 C CNN
-	1    5950 1500
-	0    -1   -1   0   
+L Device:R_POT RV1
+U 1 1 5E8996B6
+P 1450 850
+F 0 "RV1" V 1243 850 50  0001 C CNN
+F 1 "POT_Volumen_tidal" V 1335 850 50  0000 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PC-16_Single_Horizontal" H 1450 850 50  0001 C CNN
+F 3 "~" H 1450 850 50  0001 C CNN
+	1    1450 850 
+	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R_Emergencia1
-U 1 1 5E82E8AF
-P 5950 2350
-F 0 "R_Emergencia1" V 6157 2350 50  0000 C CNN
-F 1 "220" V 6066 2350 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P20.32mm_Horizontal" V 5880 2350 50  0001 C CNN
-F 3 "~" H 5950 2350 50  0001 C CNN
-	1    5950 2350
-	0    -1   -1   0   
+L Device:R_POT RV2
+U 1 1 5E89D871
+P 1450 1400
+F 0 "RV2" V 1243 1400 50  0001 C CNN
+F 1 "POT_Frecuencia" V 1335 1400 50  0000 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PC-16_Single_Horizontal" H 1450 1400 50  0001 C CNN
+F 3 "~" H 1450 1400 50  0001 C CNN
+	1    1450 1400
+	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R_Trabajando1
-U 1 1 5E8320D3
-P 5950 1900
-F 0 "R_Trabajando1" V 6157 1900 50  0000 C CNN
-F 1 "220" V 6066 1900 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P20.32mm_Horizontal" V 5880 1900 50  0001 C CNN
-F 3 "~" H 5950 1900 50  0001 C CNN
-	1    5950 1900
-	0    -1   -1   0   
+L Device:R_POT RV3
+U 1 1 5E8A030C
+P 1450 1950
+F 0 "RV3" V 1243 1950 50  0001 C CNN
+F 1 "POT_Presion" V 1335 1950 50  0000 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PC-16_Single_Horizontal" H 1450 1950 50  0001 C CNN
+F 3 "~" H 1450 1950 50  0001 C CNN
+	1    1450 1950
+	0    1    1    0   
 $EndComp
-$Comp
-L Device:R R_Configurando1
-U 1 1 5E8320D9
-P 5950 2800
-F 0 "R_Configurando1" V 6157 2800 50  0000 C CNN
-F 1 "220" V 6066 2800 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0309_L9.0mm_D3.2mm_P20.32mm_Horizontal" V 5880 2800 50  0001 C CNN
-F 3 "~" H 5950 2800 50  0001 C CNN
-	1    5950 2800
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:LED D1
-U 1 1 5E834C40
-P 6550 1500
-F 0 "D1" H 6543 1245 50  0001 C CNN
-F 1 "LED_Encendido" H 6543 1336 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6550 1500 50  0001 C CNN
-F 3 "~" H 6550 1500 50  0001 C CNN
-	1    6550 1500
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:LED D3
-U 1 1 5E83C6C7
-P 6550 2350
-F 0 "D3" H 6543 2095 50  0001 C CNN
-F 1 "LED_Emergencia" H 6543 2186 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6550 2350 50  0001 C CNN
-F 3 "~" H 6550 2350 50  0001 C CNN
-	1    6550 2350
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:LED D2
-U 1 1 5E83F23E
-P 6550 1900
-F 0 "D2" H 6543 1645 50  0001 C CNN
-F 1 "LED_Trabajando" H 6543 1736 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6550 1900 50  0001 C CNN
-F 3 "~" H 6550 1900 50  0001 C CNN
-	1    6550 1900
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:LED D4
-U 1 1 5E841ADC
-P 6550 2800
-F 0 "D4" H 6543 2545 50  0001 C CNN
-F 1 "LED_Configurando" H 6543 2636 50  0000 C CNN
-F 2 "LED_THT:LED_D3.0mm" H 6550 2800 50  0001 C CNN
-F 3 "~" H 6550 2800 50  0001 C CNN
-	1    6550 2800
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	6100 1500 6400 1500
-Wire Wire Line
-	6100 2350 6400 2350
-Wire Wire Line
-	6100 1900 6400 1900
-Wire Wire Line
-	6100 2800 6400 2800
-$Comp
-L power:GND #PWR0101
-U 1 1 5E891ABE
-P 6900 3000
-F 0 "#PWR0101" H 6900 2750 50  0001 C CNN
-F 1 "GND" H 6905 2827 50  0000 C CNN
-F 2 "" H 6900 3000 50  0001 C CNN
-F 3 "" H 6900 3000 50  0001 C CNN
-	1    6900 3000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6700 1500 6900 1500
-Wire Wire Line
-	6900 1500 6900 1900
-Wire Wire Line
-	6700 1900 6900 1900
-Connection ~ 6900 1900
-Wire Wire Line
-	6900 1900 6900 2350
-Wire Wire Line
-	6700 2350 6900 2350
-Connection ~ 6900 2350
-Wire Wire Line
-	6900 2350 6900 2800
-Wire Wire Line
-	6700 2800 6900 2800
-Connection ~ 6900 2800
-Wire Wire Line
-	6900 2800 6900 3000
-Text Label 7750 1500 0    60   ~ 0
-7(**)
-Text Label 7750 1650 0    60   ~ 0
-6(**)
-Text Label 7750 1850 0    60   ~ 0
-5(**)
-Text Label 7750 2050 0    60   ~ 0
-4(**)
-Text GLabel 5800 2800 0    50   Input ~ 0
-S_Configurando
-Text GLabel 5800 2350 0    50   Input ~ 0
-S_Emergencia
-Text GLabel 5800 1900 0    50   Input ~ 0
-S_Trabajando
-Text GLabel 5800 1500 0    50   Input ~ 0
-S_Encendido
-Text GLabel 7750 2050 0    50   Input ~ 0
-S_Configurando
-Text GLabel 7750 1850 0    50   Input ~ 0
-S_Emergencia
-Text GLabel 7750 1650 0    50   Input ~ 0
-S_Trabajando
-Text GLabel 7750 1500 0    50   Input ~ 0
-S_Encendido
-$Comp
-L Switch:SW_Push Abajo1
-U 1 1 5E8E031A
-P 2850 2000
-F 0 "Abajo1" H 2850 2285 50  0000 C CNN
-F 1 "SW_Push" H 2850 2194 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 2850 2200 50  0001 C CNN
-F 3 "~" H 2850 2200 50  0001 C CNN
-	1    2850 2000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_Push Derecha1
-U 1 1 5E8E126A
-P 2850 2550
-F 0 "Derecha1" H 2850 2743 50  0000 C CNN
-F 1 "Derecha" H 2850 2744 50  0001 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 2850 2750 50  0001 C CNN
-F 3 "~" H 2850 2750 50  0001 C CNN
-	1    2850 2550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_Push Subir1
-U 1 1 5E8E4975
-P 2850 1500
-F 0 "Subir1" H 2850 1785 50  0000 C CNN
-F 1 "SW_Push" H 2850 1694 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 2850 1700 50  0001 C CNN
-F 3 "~" H 2850 1700 50  0001 C CNN
-	1    2850 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_Push Izquierda1
-U 1 1 5E8E82FE
-P 2850 2950
-F 0 "Izquierda1" H 2850 3235 50  0000 C CNN
-F 1 "SW_Push" H 2850 3144 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 2850 3150 50  0001 C CNN
-F 3 "~" H 2850 3150 50  0001 C CNN
-	1    2850 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_Push Confirmar1
-U 1 1 5E8EBC1E
-P 2900 3500
-F 0 "Confirmar1" H 2900 3785 50  0000 C CNN
-F 1 "SW_Push" H 2900 3694 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm" H 2900 3700 50  0001 C CNN
-F 3 "~" H 2900 3700 50  0001 C CNN
-	1    2900 3500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR0102
-U 1 1 5E8F53A9
-P 2050 1350
-F 0 "#PWR0102" H 2050 1200 50  0001 C CNN
-F 1 "+5V" H 2065 1523 50  0000 C CNN
-F 2 "" H 2050 1350 50  0001 C CNN
-F 3 "" H 2050 1350 50  0001 C CNN
-	1    2050 1350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2050 1350 2050 1500
-Wire Wire Line
-	2050 3500 2700 3500
-Wire Wire Line
-	2650 1500 2050 1500
-Connection ~ 2050 1500
-Wire Wire Line
-	2050 1500 2050 2000
-Wire Wire Line
-	2650 2000 2050 2000
-Connection ~ 2050 2000
-Wire Wire Line
-	2650 2550 2050 2550
-Wire Wire Line
-	2050 2000 2050 2550
-Connection ~ 2050 2550
-Wire Wire Line
-	2050 2550 2050 2950
-Wire Wire Line
-	2650 2950 2050 2950
-Connection ~ 2050 2950
-Wire Wire Line
-	2050 2950 2050 3500
-Text Label 3550 3500 2    60   ~ 0
-A0
-Text Label 3500 2950 2    60   ~ 0
+Text Label 1500 1650 0    60   ~ 0
 A1
-Text Label 3500 2550 2    60   ~ 0
+Text Label 1500 2200 0    60   ~ 0
 A2
-Text Label 3500 2000 2    60   ~ 0
-A3
-Text Label 3500 1500 2    60   ~ 0
-A4
+Text Label 1500 1100 0    60   ~ 0
+A0
 Wire Wire Line
-	3100 3500 3550 3500
+	1450 1550 1450 1650
 Wire Wire Line
-	3500 2950 3050 2950
+	1450 1650 1500 1650
 Wire Wire Line
-	3050 2550 3500 2550
+	1450 2100 1450 2200
 Wire Wire Line
-	3500 2000 3050 2000
+	1450 2200 1500 2200
 Wire Wire Line
-	3050 1500 3500 1500
-Wire Notes Line
-	8350 500  8350 6050
-Wire Notes Line
-	4700 3650 4700 550 
-Text Label 7600 1000 2    286  ~ 0
-Indicadores
-Wire Notes Line
-	1650 3650 1650 550 
-Wire Notes Line
-	1650 550  8350 550 
-Wire Notes Line
-	1650 3650 8350 3650
-Text Label 4600 1000 2    286  ~ 0
-Configuracion
+	1450 1000 1450 1100
+Wire Wire Line
+	1450 1100 1500 1100
 $Comp
-L Display_Character:LM16255K U1
-U 1 1 5EA4B16D
-P 5800 4850
-F 0 "U1" H 6244 4896 50  0000 L CNN
-F 1 "LM16255K" H 6244 4805 50  0000 L CNN
-F 2 "Display:Adafruit_SSD1306_No_Mounting_Holes" H 5800 4050 50  0001 C CNN
-F 3 "http://pdf.datasheetcatalog.com/datasheet/Sharp/mXvtrzw.pdf" H 5900 4750 50  0001 C CNN
-	1    5800 4850
+L power:+5V #PWR0101
+U 1 1 5E8E0136
+P 900 800
+F 0 "#PWR0101" H 900 650 50  0001 C CNN
+F 1 "+5V" H 915 973 50  0000 C CNN
+F 2 "" H 900 800 50  0001 C CNN
+F 3 "" H 900 800 50  0001 C CNN
+	1    900  800 
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1300 850  900  850 
+Wire Wire Line
+	900  850  900  800 
+Wire Wire Line
+	1300 1400 900  1400
+Wire Wire Line
+	900  1400 900  850 
+Connection ~ 900  850 
+Wire Wire Line
+	1300 1950 900  1950
+Wire Wire Line
+	900  1950 900  1400
+Connection ~ 900  1400
+$Comp
+L power:GND #PWR0102
+U 1 1 5E8EB4C6
+P 2000 2150
+F 0 "#PWR0102" H 2000 1900 50  0001 C CNN
+F 1 "GND" H 2005 1977 50  0000 C CNN
+F 2 "" H 2000 2150 50  0001 C CNN
+F 3 "" H 2000 2150 50  0001 C CNN
+	1    2000 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 850  2000 850 
+Wire Wire Line
+	2000 850  2000 1400
+Wire Wire Line
+	1600 1950 2000 1950
+Connection ~ 2000 1950
+Wire Wire Line
+	2000 1950 2000 2150
+Wire Wire Line
+	1600 1400 2000 1400
+Connection ~ 2000 1400
+Wire Wire Line
+	2000 1400 2000 1950
+$Comp
+L Display_Character:HY1602E DS1
+U 1 1 5E8F9F45
+P 3850 1600
+F 0 "DS1" H 3850 2581 50  0001 C CNN
+F 1 "LCD 16x2 I2C" H 4200 2450 50  0000 C CNN
+F 2 "Display:HY1602E" H 3850 700 50  0001 C CIN
+F 3 "http://www.icbank.com/data/ICBShop/board/HY1602E.pdf" H 4050 1700 50  0001 C CNN
+	1    3850 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0103
+U 1 1 5E8FB799
+P 3850 750
+F 0 "#PWR0103" H 3850 600 50  0001 C CNN
+F 1 "+5V" H 3865 923 50  0000 C CNN
+F 2 "" H 3850 750 50  0001 C CNN
+F 3 "" H 3850 750 50  0001 C CNN
+	1    3850 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 800  3850 750 
+$Comp
+L power:GND #PWR0104
+U 1 1 5E90EA67
+P 3850 2400
+F 0 "#PWR0104" H 3850 2150 50  0001 C CNN
+F 1 "GND" H 3855 2227 50  0000 C CNN
+F 2 "" H 3850 2400 50  0001 C CNN
+F 3 "" H 3850 2400 50  0001 C CNN
+	1    3850 2400
+	1    0    0    -1  
+$EndComp
+Text Label 3450 1200 2    60   ~ 0
+SDA
+Text Label 3450 1300 2    60   ~ 0
+SCL
 $EndSCHEMATC
