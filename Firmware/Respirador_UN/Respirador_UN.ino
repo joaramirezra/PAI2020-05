@@ -11,14 +11,15 @@ Descripcion: En el contexto de la pandemia de covid-19 la universidad nacional d
 // importacion de librerias 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include  "Paciente.h"; // se usara para configurar las variables del paciente 
-#include  "entrada.h";  // se usa para configurar los botones
+#include  "Paciente.h"                          // se usara para configurar las variables del paciente 
+#include  "entrada.h"                           // se usa para configurar los botones
 
 // se crea objetos de interfaz, paciente 
 Paciente unico;
 Entrada Poteciometro_volumen(A0);
 Entrada Poteciometro_frecuencia(A1);
 Entrada Poteciometro_presion(A2);
+Entrada boton_modo_operacion(3,1);
 LiquidCrystal_I2C MyLCD(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 
 // prototipos 
@@ -35,10 +36,13 @@ void loop() {
 void imprimirLCD(){
   MyLCD.setCursor(0,0);
   MyLCD.print("                ");
+  MyLCD.setCursor(0,1);
+  MyLCD.print("                ");
   MyLCD.setCursor(0,0);
   MyLCD.print("Vt:"+ String(Poteciometro_volumen.medir_valor()));  
   MyLCD.print("Fr:"+ String(Poteciometro_frecuencia.medir_valor()));  
   MyLCD.print("Pr:"+ String(Poteciometro_presion.medir_valor()));  
   MyLCD.setCursor(0,1);
-  MyLCD.print("  Configurando");  
+  if(boton_modo_operacion.medir_valor())MyLCD.print("  Configurando");  
+  else MyLCD.print("  Operanrando");  
 }

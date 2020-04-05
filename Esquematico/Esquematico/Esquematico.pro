@@ -1,4 +1,4 @@
-update=sáb 04 abr 2020 15:05:56 -05
+update=dom 05 abr 2020 16:24:45 -05
 version=1
 last_client=kicad
 [cvpcb]
@@ -24,7 +24,7 @@ version=1
 PageLayoutDescrFile=
 LastNetListRead=Esquematico.net
 CopperLayerCount=2
-BoardThickness=1.6
+BoardThickness=1.5
 AllowMicroVias=0
 AllowBlindVias=0
 RequireCourtyardDefinitions=0
@@ -35,7 +35,7 @@ MinViaDrill=0.3
 MinMicroViaDiameter=0.2
 MinMicroViaDrill=0.09999999999999999
 MinHoleToHole=0.25
-TrackWidth1=0.25
+TrackWidth1=1.2
 ViaDiameter1=0.6
 ViaDrill1=0.4
 dPairWidth1=0.2
@@ -64,7 +64,7 @@ OthersTextUpright=1
 SolderMaskClearance=0
 SolderMaskMinWidth=0
 SolderPasteClearance=0
-SolderPasteRatio=0
+SolderPasteRatio=-0
 [pcbnew/Layer.F.Cu]
 Name=F.Cu
 Type=0
@@ -235,7 +235,7 @@ Enabled=0
 [pcbnew/Netclasses/Default]
 Name=Default
 Clearance=0.2
-TrackWidth=0.25
+TrackWidth=1.2
 ViaDiameter=0.6
 ViaDrill=0.4
 uViaDiameter=0.3
