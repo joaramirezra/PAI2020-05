@@ -37,7 +37,7 @@ class Entrada{
     
   // devuelve el valor medido en una escala de 1 a 10
   byte medir_valor(){
-   if (tipo == 0 )return map(analogRead(pin),0,1020,0,10);
+   if (tipo == 0 )return map(analogRead(pin),0,1021,0,10);
    return bool(digitalRead(pin));
    }
 };
