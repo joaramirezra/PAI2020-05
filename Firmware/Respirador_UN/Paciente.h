@@ -22,5 +22,10 @@ class Paciente{
   void set_frecuencia(byte valor){frecuencia = valor;}
   void set_volumen_tidal(byte valor){volumen_tidal = valor;}
   void set_presion(byte valor){frecuencia = valor;}
- 
+
+  void Set_parametros(byte valor , byte valor2, byte valor3){
+    frecuencia = valor;
+    volumen_tidal = valor;
+    frecuencia = valor;
+  }
 };
