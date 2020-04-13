@@ -27,16 +27,6 @@ class movimiento{
     int tiempo_Ciclo = 60 /(2*frec+10);
     byte offset = 40; // en mm
     posicion_Final_subida  = vol/5.7 + offset; // 40 es un offset de la
-    // la velocidad de subida se calcula asi :
-    // v = dx/dt , como inicia en la posicion cero en el t = 0 entonces
-    // v = (posicion final)/(tiempo que sube)
-    // la posicion final se encuentra como la relacion del volumen tidal
-    // mas un offset del desplazamiento del tornillo
-    // el tiempo de subida se halla como el tiempo de inspiracion total
-    // menos el tiempo de meseta como relacion el uno del otro 
-    // [X,X,X,X,Y,Y,Y,Y]
-    // donde el tiempo de inspiracion es la relacion del tiempo total 
-    // por lo cual, ti = (tiempo_total)*(relacion/(relacion+1)
     velocidad_subida = (posicion_Final_subida/((tiempo_Ciclo*(rela/(rela+1)))/2));   
     aceleracion_subida = 0
     // se calcula tiempo de meseta 

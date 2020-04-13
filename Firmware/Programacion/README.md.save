@@ -1,0 +1,22 @@
+# Calculo de parametros de funcionamiento 
+
+### interfaz 
+
+La interfaz se compone de tres potenciometros que son leidos por pines analogos 
+del arduino, dichos valores corresponen al volumen tidal, frecuencia de respiracion, y relacion de respiracion,
+
+estos conceptos corresponden a  
+
+* Volumen Tidal : 
+* Frecuencia respiratoria :
+* Relacion Respiración :
+
+Con dichos valores se procede a calcular los valores que serviran para mover el motor paso a paso
+de la siguiente manera 
+
+primero se calcula el tiempo de ciclo 
+
+el tiempo de cilo se define como :
+
+tiempo de ciclo = 60[s] / (numero de respiracion por minuto)
+meet.google.com/tnx-deay-rmy
