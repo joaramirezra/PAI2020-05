@@ -33,7 +33,5 @@ void loop() {
   // expiracion
   stepper.moveTo(0); 
   stepper.runToPosition();
-  delay(500);
-  
-  
+  delay(500); 
 }

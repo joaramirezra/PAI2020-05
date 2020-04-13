@@ -10,4 +10,9 @@ necesidad de cables interconectando diferentes componentes.
 
 ### Colaboladores :
 - [Johan Ramirez](https://github.com/joaramirezra)
+- Sebastian Realpe
+- Jurgen krejci
+- Dario Gutierrez
+- Pedro Cardenas
+- Ricardo Ramirez
 
