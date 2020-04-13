@@ -52,7 +52,7 @@ void Impresion_lcd_configurando(){
   MyLCD.setCursor(0,1);
   MyLCD.print("  Configurando");  
 }
-
+//ok
 void Impresion_lcd_operando(){
   limpiar_lcd();
   MyLCD.setCursor(0,0);
@@ -64,17 +64,15 @@ void Impresion_lcd_operando(){
   MyLCD.print("Fr:"+ String(Poteciometro_frecuencia.medir_valor()));  
   MyLCD.print("Pr:"+ String(Poteciometro_presion.medir_valor()));  
 }
-
+//ok
 void configurar_parametros(){
   unico.Set_parametros(Poteciometro_volumen.medir_valor(),Poteciometro_frecuencia.medir_valor(),Poteciometro_presion.medir_valor());  
   limpiar_lcd();
   MyLCD.setCursor(0,0);
   MyLCD.print("Listo");
   delay(500);
-    
-  }
-
-
+}
+//ok
 void limpiar_lcd(){
   MyLCD.setCursor(0,0);
   MyLCD.print("                ");
