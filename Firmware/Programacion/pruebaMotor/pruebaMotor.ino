@@ -29,6 +29,26 @@ void setup() {
 }
 
 void loop() {  
+<<<<<<< HEAD
   stepper.run();
   if(millis()%100 == 0) Serial.println(String(millis())+" "+String(stepper.speed())+" Posicion "+String(stepper.currentPosition()));
+=======
+
+  int velocidad_Subida = 300;
+  int tiempo_meseta = 5000; // milisegundos
+  // inspiracion 
+ 
+  stepper.moveTo(0); 
+  stepper.runToPosition();
+  stepper.setSpeed(velocidad_Subida);
+  stepper.moveTo(500);
+  stepper.runToPosition();
+  // Meseta
+  delay(1500);
+
+  // expiracion
+  stepper.moveTo(0); 
+  stepper.runToPosition();
+  delay(500); 
+>>>>>>> 64b7da5f9310ab2fbdbfc2758c7b528668dadaa7
 }
