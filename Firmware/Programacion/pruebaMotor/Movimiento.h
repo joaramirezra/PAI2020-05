@@ -35,20 +35,12 @@ class movimiento{
   
   void SetParametros(byte frec, byte vol,byte rela){
     //relacion de tiempo sirve para definir subida y bajada 
-<<<<<<< HEAD
     double tiempo_Ciclo = 60 /(2*frec+10);
     // Inspiracion 
     posicion_Final_subida  = ((vol*100.0)/5.7+40)*(200.0/(8*modo_motor)); // 40 es un offset del tornillo
     velocidad_subida = ((posicion_Final_subida- (40)*(200.0/(8*modo_motor)))/((tiempo_Ciclo*(1.0/(rela+1)))*0.65));   
     aceleracion_subida = 0;
     
-=======
-    int tiempo_Ciclo = 60 /(2*frec+10);
-    byte offset = 40; // en mm
-    posicion_Final_subida  = vol/5.7 + offset; // 40 es un offset de la
-    velocidad_subida = (posicion_Final_subida/((tiempo_Ciclo*(rela/(rela+1)))/2));   
-    aceleracion_subida = 0
->>>>>>> 13423d920c27a60e677d8e9bdc3eab104e8f7881
     // se calcula tiempo de meseta 
     Tiempo_meseta = tiempo_Ciclo*(1.0/(rela+1))*.35;
     
