@@ -11,16 +11,23 @@ Descripcion: En el contexto de la pandemia de covid-19 la universidad nacional d
 // importacion de librerias 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
+#include <AccelStepper.h>
+#include "Movimiento.h"
 #include  "Paciente.h"                          // se usara para configurar las variables del paciente 
 #include  "entrada.h"                           // se usa para configurar los botones
 
+
+#define enable 8
 // se crea objetos de interfaz, paciente 
 Paciente unico;
 Entrada Poteciometro_volumen(A0);
 Entrada Poteciometro_frecuencia(A1);
 Entrada Poteciometro_presion(A2);
-Entrada boton_modo_operacion(3,1);
-Entrada boton_confirmacion(2,1);
+Entrada boton_modo_operacion(4,1);
+Entrada boton_confirmacion(5,1);
+movimiento cicloRespiratorio;
+
+AccelStepper stepper = AccelStepper(1, 3, 2); // pin 3 : step, pin 2 : dir ; 1 indica que es driver
 
 // se crea el lcd
 LiquidCrystal_I2C MyLCD(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
@@ -30,17 +37,84 @@ void imprimirLCD();
 void limpiar_lcd();
 void configurar_parametros();
 
+byte ciclo = 1;
+double tiempo = 0;
+
 void setup() {
   MyLCD.begin(16, 2); 
+  stepper.setCurrentPosition(0);
+  pinMode(enable, OUTPUT);
+  
+  // se configuran los parametros del motor inicial
+  stepper.setMaxSpeed(6000);   
+  stepper.setAcceleration(2800);  
+  
+  // Se habilita el motor para funcionar
+  Serial.begin(9600);
 }
 
 void loop() {
   if(boton_modo_operacion.medir_valor()){
-    if(boton_confirmacion.medir_valor())configurar_parametros();
+    if(boton_confirmacion.medir_valor()){
+      configurar_parametros();
+      cicloRespiratorio.SetParametros(Poteciometro_frecuencia.medir_valor(), Poteciometro_volumen.medir_valor(), Poteciometro_presion.medir_valor()); 
+      }
     else Impresion_lcd_configurando();
+    delay(200);
   }
-  else Impresion_lcd_operando();
-  delay(500);
+  else {
+    if(ciclo == 1){  
+    stepper.moveTo(cicloRespiratorio.posicion_Final_subida-2000);
+    stepper.setSpeed(cicloRespiratorio.velocidad_subida);
+    ciclo = 2;
+   // Serial.println("Inicia Respiracion");
+   }
+  // corre a velocidad constante 
+  else if(stepper.distanceToGo() >0 && ciclo == 2 )stepper.runSpeed();
+  
+  // inicio meseta ----------------------------------------------------------------------
+  else if(stepper.distanceToGo() <=0 && ciclo == 2 ){
+    ciclo = 3 ;
+   // Serial.println("Inicia Meseta"); 
+    tiempo = millis();
+  }
+
+  else if(ciclo == 3 && millis() <  (tiempo + cicloRespiratorio.Tiempo_meseta*1000)){}//fin meseta
+  else if(ciclo == 3 && millis() >= (tiempo + cicloRespiratorio.Tiempo_meseta*1000)){
+    ciclo = 4;
+    //Serial.println("FIN Meseta"); 
+  }//fin meseta
+
+  // Expiracion 
+  else if(ciclo == 4 ){ 
+     stepper.setSpeed(cicloRespiratorio.Velocidad_inicial_bajada);
+     //stepper.setAcceleration(cicloRespiratorio.acelaracion_bajada);
+     
+     stepper.moveTo(0);
+     //Serial.println("Inicio Expiracion");
+     delay(100);
+     ciclo = 5;
+    }
+
+  else if(stepper.distanceToGo()<0 && ciclo == 5 ){
+    //if(millis()%100 == 0)
+      //Serial.println("V" + String(stepper.speed())+" P2" + String(cicloRespiratorio.Velocidad_inicial_bajada));
+    stepper.run();
+    }
+  
+  else if(stepper.distanceToGo()>=0 && ciclo == 5 ){// inicio meseta
+    //Serial.println("Inicio pausa");
+    ciclo = 6 ;
+    tiempo = millis();
+    }
+    
+  else if(ciclo == 6 && millis() < (tiempo+cicloRespiratorio.Tiempo_pausa*1000)){}//fin meseta
+  else if(ciclo == 6 && millis() >= (tiempo+cicloRespiratorio.Tiempo_pausa*1000)){
+    ciclo = 1;
+   }//fin meseta
+
+    
+    }
   }
 
 void Impresion_lcd_configurando(){
