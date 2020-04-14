@@ -6,7 +6,7 @@ AccelStepper stepper = AccelStepper(1, 3, 2); // pin 3 : step, pin 2 : dir ; 1 i
 
 movimiento cicloRespiratorio;
 
-byte Volumen = 3;
+byte Volumen = 2.5;
 byte frecuencia= 0; 
 byte relacion = 1; 
 
