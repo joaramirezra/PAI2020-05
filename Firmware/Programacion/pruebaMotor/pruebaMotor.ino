@@ -30,7 +30,7 @@ void setup() {
   //delay(1500);
 }
 
-byte ciclo = 1;
+byte ciclo = 4;
 double tiempo =0;
 void loop() {   
   // Inicio inspiracion -----------------------------------------------------------------
@@ -57,10 +57,10 @@ void loop() {
   if(ciclo == 4 ){
      stepper.setSpeed(cicloRespiratorio.Velocidad_inicial_bajada);
      stepper.setAcceleration(cicloRespiratorio.acelaracion_bajada);
-     stepper.moveTo(0);
+//     stepper.moveTo(0);
     }
 
-  if(stepper.distanceToGo()<0 && ciclo == 4 )stepper.run();
+  if(stepper.distanceToGo()<0 && ciclo == 4 )stepper.runToPosition(0);
   
   if(stepper.distanceToGo()>=0 && ciclo == 4 ){// inicio meseta
     ciclo = 5 ;
