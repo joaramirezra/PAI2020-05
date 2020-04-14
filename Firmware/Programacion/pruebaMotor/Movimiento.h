@@ -3,13 +3,16 @@ class movimiento{
     byte Frecuencia;                  // Valor configurado por el medico 
     byte volumen;                     // Valor Configurado por el medico
     byte Relacion;                    // Valor Configurado por el medico      
-    int velocidad_subida;             // Calculado Inspiracion           
-    int aceleracion_subida;           // Calculado Inspiracion
-    int posicion_Final_subida;        // Calculado Inspiracion
-    int Tiempo_meseta;                // Calculado Meseta
-    int Velocidad_inicial_bajada;     // Calculado espiracion
-    int acelaracion_inicial_bajada;   // Calculado espiracion
-  
+    double velocidad_subida;             // Calculado Inspiracion           
+    double aceleracion_subida;           // Calculado Inspiracion
+    double posicion_Final_subida;        // Calculado Inspiracion
+    double Tiempo_meseta;                // Calculado Meseta
+    double Velocidad_inicial_bajada;     // Calculado espiracion
+    double acelaracion_bajada;   // Calculado espiracion
+    double modo_motor;
+    float coeficiente;
+    double Tiempo_pausa; 
+    
   //Constructor 
   movimiento (){
     Frecuencia = 0;               
@@ -20,26 +23,37 @@ class movimiento{
     posicion_Final_subida = 0;        
     Tiempo_meseta = 0;                
     Velocidad_inicial_bajada = 0;     
-    acelaracion_inicial_bajada = 0;   
+    acelaracion_bajada = 0;
+    modo_motor = 0.5;
+    coeficiente = 0;
+    Tiempo_pausa = 0;
   }
+
+  int get_velocidad_subida(){return velocidad_subida;}
+  int get_posicion_Final_subida(){return posicion_Final_subida;}
+
+  
   void SetParametros(byte frec, byte vol,byte rela){
     //relacion de tiempo sirve para definir subida y bajada 
-    int tiempo_Ciclo = 60 /(2*frec+10);
-    byte offset = 40; // en mm
-    posicion_Final_subida  = vol/5.7 + offset; // 40 es un offset de la
-    // la velocidad de subida se calcula asi :
-    // v = dx/dt , como inicia en la posicion cero en el t = 0 entonces
-    // v = (posicion final)/(tiempo que sube)
-    // la posicion final se encuentra como la relacion del volumen tidal
-    // mas un offset del desplazamiento del tornillo
-    // el tiempo de subida se halla como el tiempo de inspiracion total
-    // menos el tiempo de meseta como relacion el uno del otro 
-    // [X,X,X,X,Y,Y,Y,Y]
-    // donde el tiempo de inspiracion es la relacion del tiempo total 
-    // por lo cual, ti = (tiempo_total)*(relacion/(relacion+1)
-    velocidad_subida = (posicion_Final_subida/((tiempo_Ciclo*(rela/(rela+1)))/2));   
-    aceleracion_subida = 0
+    double tiempo_Ciclo = 60 /(2*frec+10);
+    // Inspiracion 
+    posicion_Final_subida  = ((vol*100.0)/5.7+40)*(200.0/(8*modo_motor)); // 40 es un offset del tornillo
+    velocidad_subida = ((posicion_Final_subida- (40)*(200.0/(8*modo_motor)))/((tiempo_Ciclo*(1.0/(rela+1)))*0.65));   
+    aceleracion_subida = 0;
+    
     // se calcula tiempo de meseta 
-     
+    Tiempo_meseta = tiempo_Ciclo*(1.0/(rela+1))*.35;
+    
+    // Espiracion
+    double Tiempo_bajada = tiempo_Ciclo*(double(rela)/(rela+1))*0.7;
+    Tiempo_pausa =  tiempo_Ciclo*(double(rela)/(rela+1))*0.3;
+    double Tiempo_inicio =  tiempo_Ciclo*(1.0/(rela+1));
+    double Tiempo_final =  Tiempo_inicio + Tiempo_bajada;
+    double delta_tiempo = Tiempo_inicio  - Tiempo_final;
+  
+    coeficiente = (vol*100.0)/((delta_tiempo )*(delta_tiempo ));  
+    acelaracion_bajada = ((2*coeficiente)/5.7)*(200.0/(8*modo_motor));
+    Velocidad_inicial_bajada = ((2*coeficiente*delta_tiempo)/5.7)*(200.0/(8*modo_motor));
+    //return tiempo_Ciclo*(1.0/(rela+1))*0.65;
   }  
 };
