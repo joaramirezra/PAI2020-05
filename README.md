@@ -19,7 +19,7 @@ Dicho lo anterior, este proyecto contiene informacion basica para Construir un r
 ### Colaboladores :
 - [Johan Ramirez](https://github.com/joaramirezra)
 - [Sebastian Realpe](https://github.com/GitSRealpe)
-- Jurgen krejci
+- [Jurgen krejci](https://github.com/JurgenHK)
 - Dario Gutierrez
 - Pedro Cardenas
 - Ricardo Ramirez
