@@ -1,54 +1,58 @@
 #include <AccelStepper.h>
-
-#define boton 7
 #define enable 8
-#define homing 4
 
-int dato=0;
-bool activateMovement = 0 ;
 AccelStepper stepper = AccelStepper(1, 3, 2); // pin 3 : step, pin 2 : dir ; 1 indica que es driver
 
+int velocidad = 1000;
+int velocidad_max = 4000;
+int aceleracion = 2000;
+int posicion = 2500;
+
 void setup() {
+  // Se envia a home
   stepper.setCurrentPosition(0);
   pinMode(enable, OUTPUT);
-  stepper.setMaxSpeed(12000);     
-  stepper.setAcceleration(1600);
+
+  // se configuran los parametros del motor inicial
+  stepper.setMaxSpeed(velocidad_max);
+  stepper.setAcceleration(aceleracion);
+  // Se habilita el motor para funcionar
   digitalWrite(enable, LOW);
   Serial.begin(9600);
-  delay(1000);
-  
-  int posicion_final= 20000; 
-  int velocidad_Subida = 000;
-  Serial.println("hola Perros");
-  stepper.setSpeed(velocidad_Subida);
-  stepper.moveTo(posicion_final);
-//  stepper.runToPosition();
-  stepper.run();
-  
-  Serial.println("Adios Perros");
+  stepper.moveTo(25000);
 }
 
-void loop() {  
-<<<<<<< HEAD
-  stepper.run();
-  if(millis()%100 == 0) Serial.println(String(millis())+" "+String(stepper.speed())+" Posicion "+String(stepper.currentPosition()));
-=======
+bool tipo = 0; // 0 : velocidad cte ; 1 : aceleracion cte
 
-  int velocidad_Subida = 300;
-  int tiempo_meseta = 5000; // milisegundos
-  // inspiracion 
- 
-  stepper.moveTo(0); 
-  stepper.runToPosition();
-  stepper.setSpeed(velocidad_Subida);
-  stepper.moveTo(500);
-  stepper.runToPosition();
-  // Meseta
-  delay(1500);
+void loop() {
+//  stepper.setCurrentPosition(0);
+//  stepper.setSpeed(velocidad);
+//  
+//  if(stepper.distanceToGo()>0)
+    stepper.run();
+  //
+  //  if(tipo==0){
+  //    stepper.moveTo(posicion);
+  //    stepper.setSpeed(velocidad);
+  //    while(stepper.distanceToGo()>0){
+  //      stepper.runSpeed();
+  //    }
+  //    stepper.moveTo(0);
+  //    while(stepper.distanceToGo()>0){
+  //      stepper.runSpeed();
+  //    }
+  //  }
+  //  if(tipo==1){
+  //    stepper.moveTo(posicion);
+  //    while(stepper.currentPosition()<posicion){
+  //      if(millis()%1000== 0)Serial.println(stepper.currentPosition());
+  //      stepper.run();
+  //    }
+  //    stepper.moveTo(0);
+  //    while(stepper.currentPosition()>0){
+  //      if(millis()%1000== 0)Serial.println(stepper.currentPosition());
+  //      stepper.run();
+  //    }
+  //  }
 
-  // expiracion
-  stepper.moveTo(0); 
-  stepper.runToPosition();
-  delay(500); 
->>>>>>> 64b7da5f9310ab2fbdbfc2758c7b528668dadaa7
 }
