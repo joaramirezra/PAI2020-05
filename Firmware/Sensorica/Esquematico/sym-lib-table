@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ABP_Sensor)(type Legacy)(uri /home/johan/Desktop/2020/PAI2020-05/Firmware/Sensorica/librerias/ABP_Sensor.lib)(options "")(descr ""))
+)
