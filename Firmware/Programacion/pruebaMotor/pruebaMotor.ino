@@ -1,8 +1,11 @@
 #include <AccelStepper.h>
+
 #include "Movimiento.h"
+
 #define enable 8
 
 AccelStepper stepper = AccelStepper(1, 3, 2); // pin 3 : step, pin 2 : dir ; 1 indica que es driver
+
 
 movimiento cicloRespiratorio;
 
