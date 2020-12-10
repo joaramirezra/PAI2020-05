@@ -1,8 +1,7 @@
 # Proyecto Respirador unal
-### Fecha   : 13/4/2020
-### Version : 0.62 
-### Descripcion:
-Durante la epidemia del covid-19, el mundo afronta un sin fin de desafios entre ellos el preservar la mayor cantidad de vidas posibles,Esta infeccion suelen contar con fiebre y síntomas respiratorios (tos y disnea o dificultad para respirar). En los casos más graves, pueden causar neumonía, síndrome respiratorio agudo severo, insuficiencia renal e, incluso, la muerte. 
+**Version :** 1.0
+
+**Descripcion :** Durante la epidemia del covid-19, el mundo afronta un sin fin de desafios entre ellos el preservar la mayor cantidad de vidas posibles,Esta infeccion suelen contar con fiebre y síntomas respiratorios (tos y disnea o dificultad para respirar). En los casos más graves, pueden causar neumonía, síndrome respiratorio agudo severo, insuficiencia renal e, incluso, la muerte. 
 
 Dicho lo anterior, este proyecto contiene informacion basica para Construir un respirador mecanico de bajo costo para asistir a los pacientes con sindromes respiratorios como se muestra en el siguiente video 
 
@@ -18,10 +17,13 @@ Dicho lo anterior, este proyecto contiene informacion basica para Construir un r
 
 ### Colaboladores :
 - [Johan Ramirez](https://github.com/joaramirezra)
-- Sebastian Realpe
-- Jurgen krejci
+- [Sebastian Realpe](https://github.com/GitSRealpe)
+- [Jurgen krejci](https://github.com/JurgenHK)
 - Dario Gutierrez
 - Pedro Cardenas
 - Ricardo Ramirez
 
 
+### License
+
+- [Creative commons 4.0 ](https://creativecommons.org/licenses/by/4.0)
